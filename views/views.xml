@@ -1,0 +1,600 @@
+<odoo>
+  <data>
+    <!--VISTA DEL MODELO DE LIBRO-->
+
+    <record model="ir.ui.view" id="biblioteca.libro_list_view">
+      <field name="name">biblioteca.libro.view.tree</field>
+      <field name="model">biblioteca.libro</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="titulo"/>
+          <field name="autor_id" />
+          <field name="editorial_id" />
+          <field name="genero_id" />
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.libro_search_view">
+      <field name="name">biblioteca.libro.view.search</field>
+      <field name="model">biblioteca.libro</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="titulo"/>
+          <field name="autor_id" />
+          <field name="editorial_id" />
+          <field name="genero_id" />
+          <group>
+            <filter name="group_by_titulo" string="titulo" context="{'gropup_by':'titulo'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.libro_form_view">
+      <field name="name">biblioteca.libro.view.form</field>
+      <field name="model">biblioteca.libro</field>
+      <field name="arch" type="xml">
+        <form string="Información libro">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del libro <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="titulo" placeholder="titulo"/>
+                <field name="autor_id" placeholder="ID/s del autor/es" />
+                <field name="editorial_id" placeholder="ID de la editorial" />
+                <field name="genero_id" placeholder="IDs de los generos" />
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE AUTOR-->
+
+    <record model="ir.ui.view" id="biblioteca.autor_list_view">
+      <field name="name">biblioteca.autor.view.tree</field>
+      <field name="model">biblioteca.autor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.autor_search_view">
+      <field name="name">biblioteca.autor.view.search</field>
+      <field name="model">biblioteca.autor</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.autor_form_view">
+      <field name="name">biblioteca.autor.view.form</field>
+      <field name="model">biblioteca.autor</field>
+      <field name="arch" type="xml">
+        <form string="Información autor">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del autor <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE EDITORIAL-->
+
+    <record model="ir.ui.view" id="biblioteca.editorial_list_view">
+      <field name="name">biblioteca.editorial.view.tree</field>
+      <field name="model">biblioteca.editorial</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.editorial_search_view">
+      <field name="name">biblioteca.editorial.view.search</field>
+      <field name="model">biblioteca.editorial</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.editorial_form_view">
+      <field name="name">biblioteca.editorial.view.form</field>
+      <field name="model">biblioteca.editorial</field>
+      <field name="arch" type="xml">
+        <form string="Información autor">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id de la editorial <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE GENERO-->
+
+    <record model="ir.ui.view" id="biblioteca.genero_list_view">
+      <field name="name">biblioteca.genero.view.tree</field>
+      <field name="model">biblioteca.genero</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.genero_search_view">
+      <field name="name">biblioteca.genero.view.search</field>
+      <field name="model">biblioteca.genero</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.genero_form_view">
+      <field name="name">biblioteca.genero.view.form</field>
+      <field name="model">biblioteca.genero</field>
+      <field name="arch" type="xml">
+        <form string="Información del genero">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del genero <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE PERSONA-->
+
+    <record model="ir.ui.view" id="biblioteca.persona_list_view">
+      <field name="name">biblioteca.persona.view.tree</field>
+      <field name="model">biblioteca.persona</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="fnacimiento"/>
+          <field name="tarjeta_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.persona_search_view">
+      <field name="name">biblioteca.persona.view.search</field>
+      <field name="model">biblioteca.persona</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="fnacimiento"/>
+          <field name="tarjeta_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.persona_form_view">
+      <field name="name">biblioteca.persona.view.form</field>
+      <field name="model">biblioteca.persona</field>
+      <field name="arch" type="xml">
+        <form string="Información de la persona">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id de la persona <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="fnacimiento" placeholder="fecha de nacimiento"/>
+                <field name="tarjeta_id" placeholder='id de la tarjeta'/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE CLIENTE-->
+
+    <record model="ir.ui.view" id="biblioteca.cliente_list_view">
+      <field name="name">biblioteca.cliente.view.tree</field>
+      <field name="model">biblioteca.cliente</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="persona_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.cliente_search_view">
+      <field name="name">biblioteca.cliente.view.search</field>
+      <field name="model">biblioteca.cliente</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="persona_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.cliente_form_view">
+      <field name="name">biblioteca.cliente.view.form</field>
+      <field name="model">biblioteca.cliente</field>
+      <field name="arch" type="xml">
+        <form string="Información del cliente">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del cliente <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="persona_id" placeholder="DNI de la persona"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE Empleado-->
+
+    <record model="ir.ui.view" id="biblioteca.empleado_list_view">
+      <field name="name">biblioteca.empleado.view.tree</field>
+      <field name="model">biblioteca.empleado</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="persona_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.empleado_search_view">
+      <field name="name">biblioteca.empleado.view.search</field>
+      <field name="model">biblioteca.empleado</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="nombre"/>
+          <field name="persona_id"/>
+          <group>
+            <filter name="group_by_nombre" string="nombre" context="{'gropup_by':'nombre'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.empleado_form_view">
+      <field name="name">biblioteca.empleado.view.form</field>
+      <field name="model">biblioteca.empleado</field>
+      <field name="arch" type="xml">
+        <form string="Información del empleado">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del empleado <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="nombre" placeholder="nombre"/>
+                <field name="persona_id" placeholder="DNI de la persona"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE PRESTAMO -->
+
+    <record model="ir.ui.view" id="biblioteca.prestamo_list_view">
+      <field name="name">biblioteca.prestamo.view.tree</field>
+      <field name="model">biblioteca.prestamo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="fdevolucion"/>
+          <field name="libro_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.prestamo_search_view">
+      <field name="name">biblioteca.prestamo.view.search</field>
+      <field name="model">biblioteca.prestamo</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="fdevolucion"/>
+          <field name="libro_id"/>
+          <group>
+            <filter name="group_by_fdevolucion" string="fdevolucion" context="{'gropup_by':'fdevolucion'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.prestamo_form_view">
+      <field name="name">biblioteca.prestamo.view.form</field>
+      <field name="model">biblioteca.prestamo</field>
+      <field name="arch" type="xml">
+        <form string="Información del prestamo">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id del prestamo <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="fdevolucion" placeholder="fecha de devolucion"/>
+                <field name="libro_id" placeholder="id del libro"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!--VISTA DEL MODELO DE TARJETA -->
+
+    <record model="ir.ui.view" id="biblioteca.tarjeta_list_view">
+      <field name="name">biblioteca.tarjeta.view.tree</field>
+      <field name="model">biblioteca.tarjeta</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="fcaducidad"/>
+          <field name="persona_id"/>
+        </tree>
+      </field>
+    </record>
+
+<!-- search -->
+
+    <record model="ir.ui.view" id="biblioteca.tarjeta_search_view">
+      <field name="name">biblioteca.tarjeta.view.search</field>
+      <field name="model">biblioteca.tarjeta</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="fcaducidad"/>
+          <field name="persona_id"/>
+          <group>
+            <filter name="group_by_fcaducidad" string="fcaducidad" context="{'gropup_by':'fcaducidad'}" />
+          </group>
+        </search>
+      </field>
+    </record>
+
+    <!-- form -->
+
+    <record model="ir.ui.view" id="biblioteca.tarjeta_form_view">
+      <field name="name">biblioteca.tarjeta.view.form</field>
+      <field name="model">biblioteca.tarjeta</field>
+      <field name="arch" type="xml">
+        <form string="Información del tarjeta">
+          <sheet>
+            <div class="oe_title">
+              <h1>
+                Id de la tarjeta <field name="name" placeholder="ID"/>
+              </h1>
+            </div>
+            <group>
+              <group>
+                <separator string="Datos"/>
+                <field name="fcaducidad" placeholder="fecha de caducidad"/>
+                <field name="persona_id" placeholder='id de la persona'/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+
+    <!-- Definición de menús-->
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="biblioteca.libro_action_window">
+      <field name="name">libros</field>
+      <field name="res_model">biblioteca.libro</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.autor_action_window">
+      <field name="name">autores</field>
+      <field name="res_model">biblioteca.autor</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.editorial_action_window">
+      <field name="name">editoriales</field>
+      <field name="res_model">biblioteca.editorial</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.genero_action_window">
+      <field name="name">generos</field>
+      <field name="res_model">biblioteca.genero</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.persona_action_window">
+      <field name="name">personas</field>
+      <field name="res_model">biblioteca.persona</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.cliente_action_window">
+      <field name="name">clientes</field>
+      <field name="res_model">biblioteca.cliente</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.empleado_action_window">
+      <field name="name">empleados</field>
+      <field name="res_model">biblioteca.empleado</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.prestamo_action_window">
+      <field name="name">prestamos</field>
+      <field name="res_model">biblioteca.prestamo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="biblioteca.tarjeta_action_window">
+      <field name="name">tarjetas</field>
+      <field name="res_model">biblioteca.tarjeta</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!--                 -->
+
+    <menuitem name="biblioteca" id="biblioteca.menu_root"/>
+
+     <menuitem name="libros" id="biblioteca.menu_libro" parent="biblioteca.menu_root"/>
+     <menuitem name="autores" id="biblioteca.menu_autor" parent="biblioteca.menu_root"/>
+     <menuitem name="editoriales" id="biblioteca.menu_editorial" parent="biblioteca.menu_root"/>
+     <menuitem name="generos" id="biblioteca.menu_genero" parent="biblioteca.menu_root"/>
+     <menuitem name="personas" id="biblioteca.menu_persona" parent="biblioteca.menu_root"/>
+     <menuitem name="clientes" id="biblioteca.menu_cliente" parent="biblioteca.menu_root"/>
+     <menuitem name="empleados" id="biblioteca.menu_empleado" parent="biblioteca.menu_root"/>
+     <menuitem name="prestamos" id="biblioteca.menu_prestamo" parent="biblioteca.menu_root"/>
+     <menuitem name="tarjetas" id="biblioteca.menu_tarjeta" parent="biblioteca.menu_root"/>
+
+     <menuitem name="List" id="biblioteca.menu_libro_list" parent="biblioteca.menu_libro"
+              action="biblioteca.libro_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_autor_list" parent="biblioteca.menu_autor"
+              action="biblioteca.autor_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_editorial_list" parent="biblioteca.menu_editorial"
+              action="biblioteca.editorial_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_genero_list" parent="biblioteca.menu_genero"
+              action="biblioteca.genero_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_personas_list" parent="biblioteca.menu_persona"
+              action="biblioteca.persona_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_cliente_list" parent="biblioteca.menu_cliente"
+              action="biblioteca.cliente_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_empleado_list" parent="biblioteca.menu_empleado"
+              action="biblioteca.empleado_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_prestamo_list" parent="biblioteca.menu_prestamo"
+              action="biblioteca.prestamo_action_window"/>
+      <menuitem name="List" id="biblioteca.menu_tarjeta_list" parent="biblioteca.menu_tarjeta"
+              action="biblioteca.tarjeta_action_window"/>
+  </data>
+</odoo>
